@@ -1,0 +1,24 @@
+﻿@using AjaxChat.Models
+@model ChatModel
+<div id="Users">
+    @foreach (ChatUser user in Model.Users)
+    {
+        <p>@user.id</p>
+    }
+</div>
+<div id="Messages">
+    @foreach (ChatMessage msg in Model.Messages)
+    {
+        <p>
+            
+            @if (msg.User != null)
+            {
+                <b>@(msg.User.id + ":")</b> @msg.Text
+            }
+            else
+            {
+                <span class="serverMes">@msg.Text</span>
+            }
+        </p>
+    }
+</div>
